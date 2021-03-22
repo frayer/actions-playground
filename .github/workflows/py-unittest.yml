@@ -16,6 +16,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-    - name: Analysing the code with pylint
+    - name: Unit test the code
       run: |
         python -m unittest
