@@ -15,13 +15,16 @@ jobs:
       run: |
         ls ${{ github.workspace }}
     - run: echo "🍏 This job's status is ${{ job.status }}."
+
   node-test:
     runs-on: ubuntu-latest
     container:
-      image: node:14.16
+      image: node:16
       volumes:
         - ${{ github.workspace }}:/workspace
     steps:
+    - name: Check out repository code
+      uses: actions/checkout@v3
     - run: node --version
     - run: npm ls -g --depth 0
     - name: my world
