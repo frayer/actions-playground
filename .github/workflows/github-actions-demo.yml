@@ -19,10 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:14.16
+      volumes:
+        - ${{ github.workspace }}:/workspace
     steps:
     - run: node --version
-    - run: npm ls -g
+    - run: npm ls -g --depth 0
     - run: |
         id
         pwd
+        cd /workspace
         ls -al
