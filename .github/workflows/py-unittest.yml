@@ -13,15 +13,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    - name: View world
-      run: |
-        pwd
-        id
-        ls -al
-    - name: Docker stuff
-      run: |
-        docker version
-        docker images
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
