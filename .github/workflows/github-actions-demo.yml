@@ -24,8 +24,10 @@ jobs:
     steps:
     - run: node --version
     - run: npm ls -g --depth 0
-    - run: |
+    - name: my world
+      run: |
         id
         pwd
         cd /workspace
         ls -al
+        echo ${{ github.workspace }}
