@@ -1,0 +1,13 @@
+name: Deploy
+on:
+  repository_dispatch:
+    types: [deploy-command]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+    - name: View context attributes
+      uses: actions/github-script@v6
+      with:
+       script: console.log(context)

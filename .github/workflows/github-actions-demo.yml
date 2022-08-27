@@ -1,5 +1,5 @@
 name: GitHub Actions Demo
-on: [push]
+on: [workflow_dispatch]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -15,35 +15,8 @@ jobs:
       run: |
         ls ${{ github.workspace }}
     - run: echo "🍏 This job's status is ${{ job.status }}."
-  
-  sleepy:
-    runs-on: ubuntu-latest
-    steps:
-    - run: sleep 10
-
-  node-test:
-    needs: [sleepy]
-    runs-on: ubuntu-latest
-    container:
-      image: node:16
-      volumes:
-        - ${{ github.workspace }}:/workspace
-    steps:
-    - name: Check out repository code
-      uses: actions/checkout@v3
-    - run: node --version
-    - run: npm ls -g --depth 0
-    - name: create file
+    - name: poking-around
       run: |
-        cd /workspace
-        echo $(date) > date.txt
-        ls -al
-        echo ${{ github.workspace }}
-        cat date.txt
-    - name: my world
-      run: |
-        id
+        whoami
         pwd
-        cd /workspace
-        ls -al
-        echo ${{ github.workspace }}
+        docker images
