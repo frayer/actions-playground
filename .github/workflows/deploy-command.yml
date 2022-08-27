@@ -18,7 +18,7 @@ jobs:
     - name: View slash_command attributes
       uses: actions/github-script@v6
       with:
-       script: console.log(context.payload.client_payload)
+       script: console.log(context.payload.client_payload.slash_command)
     - name: View GitHub payload attributes
       uses: actions/github-script@v6
       with:
