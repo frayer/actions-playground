@@ -7,7 +7,15 @@ jobs:
   Explore-Event:
     runs-on: ubuntu-latest
     steps:
-    - name: View context attributes
+    - name: View payload attributes
+      uses: actions/github-script@v6
+      with:
+       script: console.log(context.payload)
+    - name: View client_payload attributes
+      uses: actions/github-script@v6
+      with:
+       script: console.log(context.payload.client_payload)
+    - name: View GitHub payload attributes
       uses: actions/github-script@v6
       with:
        script: console.log(context.payload.client_payload.github.payload)
