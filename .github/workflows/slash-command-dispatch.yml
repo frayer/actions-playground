@@ -3,7 +3,15 @@ on:
   issue_comment:
     types: [created]
 jobs:
-  slashCommandDispatch:
+  Explore-Event:
+    runs-on: ubuntu-latest
+    steps:
+    - name: View context attributes
+      uses: actions/github-script@v6
+      with:
+       script: console.log(context)
+
+  Slash-Command-Dispatch:
     runs-on: ubuntu-latest
     steps:
       - name: Slash Command Dispatch
